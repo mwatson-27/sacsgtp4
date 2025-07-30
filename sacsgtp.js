@@ -240,7 +240,7 @@ function processRequest() {
         botResponse = generateDirections(originRoom, directionRoom);
         originRoom = null;
         directionRoom = null;
-  } else if (nex_text == "?roomlist") {
+  } else if (new_text == "?roomlist") {
     botResponse = "Here is a list of all the rooms I know about: " + classrooms.join(", ") + ".";
   
   } else {
