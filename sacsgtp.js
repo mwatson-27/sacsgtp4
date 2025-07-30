@@ -191,8 +191,6 @@ function appendMessage(text, sender) {
   messages.scrollTop = messages.scrollHeight;
 }
 
-let followUp = false;
-let receptionQuery = false;
 let directionRoom = null;
 let originRoom = null;
 let bothRooms = false;
@@ -229,117 +227,43 @@ function processRequest() {
 
 
 
-  if (followUp && receptionQuery) {
-    
-    
-    for (const word of new_text.split(" ")) {
-      if (word == "bbc" || word == "barry") {
-        directionRoom = "bbc_reception";
-      }
-      
-      else if (word == "sah" || word == "house") {
-        directionRoom = "sah_reception";
-        
-      }
 
-    }
+  let split_text = new_text.split(" ");
 
-
-    if (directionRoom) {
-      botResponse = `You want to reach ${directionRoom}. What room are you currently in?`;
-      followUp = true;
-      receptionQuery = false;
-    } else {
-      botResponse = `That does not appear to be a valid rooms`;
-      followUp = false;
-      receptionQuery = false;
-      
-
-    }
-    
-
-  } else if (followUp && directionRoom) {
-    for (const word of new_text.split(" ")) {
-      if (classrooms.includes(word)) {
-        originRoom = word;
-      }
-    }
-
-    botResponse = generateDirections(originRoom, directionRoom);
-
-
-    
-    followUp = false;
-    
+  if (new_text.includes("\"?\"")) {
+        botResponse = "I see how it is. "
+  } else if (new_text == "?") {
+        botResponse = "currently it doesnt do much. To request directions, first ask how to get to the destination room, then the bot will prompt you for the starting room. Currently (and it won't be added), there is no way to ask this question in the other order. ";
+  } else if (classrooms.includes(split_text[0]) && classrooms.includes(split_text[2]) && split_text[1] == "to") {
+        originRoom = split_text[0];
+        directionRoom = split_text[2];
+        botResponse = generateDirections(originRoom, directionRoom);
+        originRoom = null;
+        directionRoom = null;
 
   } else {
-    let split_text = new_text.split(" ");
+    for (const word of split_text) {
+      if (greetings.includes(word)) {
+        greetingWeight += 1;
+      } else if (word == "bbc" || word == "passcode" || word == "code") {
+        bbcWeight += 1;
+      }
+  
+    }
 
-    if (new_text.includes("\"?\"")) {
-          botResponse = "I see how it is. "
-    } else if (new_text == "?") {
-          botResponse = "currently it doesnt do much. To request directions, first ask how to get to the destination room, then the bot will prompt you for the starting room. Currently (and it won't be added), there is no way to ask this question in the other order. ";
-    } else if (classrooms.includes(split_text[0]) && classrooms.includes(split_text[2]) && split_text[1] == "to") {
-          originRoom = split_text[0];
-          directionRoom = split_text[2];
-          botResponse = generateDirections(originRoom, directionRoom);
-          followUp = false;
-          originRoom = null;
-          directionRoom = null;
+    if (bbcWeight >= 2) {
+      console.log("wtf");
+      botResponse = "The passcode to enter the BBC is 1401#";
+        
+    } else if (greetingWeight >= 1) {
+      botResponse = "Hello!";
 
     } else {
-      for (const word of split_text) {
-        if (greetings.includes(word)) {
-          greetingWeight += 1;
-        } else if (word == "reception") {
-          receptionWeight += 1;
-                  
-        } else if (classrooms.includes(word)) {
-          directionRoom = word;
-          directionWeight += 1;
-        } else if (word == "to") {
-          directionWeight += 1;
-        }
-    
-      }
+      botResponse = "I'm not sure I understand.";
 
-      if (bbcWeight >= 2) {
-        console.log("wtf");
-        botResponse = "The passcode to enter the BBC is 1401#";
-
-      } else if (receptionWeight >= 1) {
-
-        if (new_text.includes("sah")) {
-          directionRoom = "sah_reception"
-          botResponse = `It appears you want to reach ${directionRoom}. What room are you currently in?`;
-          followUp = true;
-        } else if (new_text.includes("bbc")) {
-          directionRoom = "bbc_reception"
-          botResponse = `It appears you want to reach ${directionRoom}. What room are you currently in?`;
-          followUp = true;
-        } else {
-          botResponse = "Are you referring to BBC or SAH reception?";
-          followUp = true;
-          receptionQuery = true;
-        }
-      
-
-        
-
-      } else if (directionWeight >= 1) {
-        botResponse = `It appears you want to reach ${directionRoom}. What room are you currently in?`;
-        followUp = true;
-      
-      } else if (greetingWeight >= 1) {
-        botResponse = "Hello!";
-        followUp = false;
-
-      } else {
-        botResponse = "I'm not sure I understand.";
-        followUp = false;
-      }
     }
   }
+  
 
 
   // Fallback for empty botResponse just before replacements and appendMessage
@@ -366,12 +290,10 @@ sendButton.addEventListener('click', processRequest);
 userInput.addEventListener('keypress', keypress => {
   if (keypress.key === 'Enter') {
     processRequest();
-    console.log(`originRoom: ${originRoom}`)
-    console.log(`directionRoom: ${directionRoom}`)
-    console.log(`followUp: ${followUp}`)
-    console.log(`receptionQuery: ${receptionQuery}`)
-    console.log(`bothRooms: ${bothRooms}`)
-    console.log()
+    // console.log(`originRoom: ${originRoom}`)
+    // console.log(`directionRoom: ${directionRoom}`)
+    // console.log(`bothRooms: ${bothRooms}`)
+    console.log("john")
   } 
   
 });
