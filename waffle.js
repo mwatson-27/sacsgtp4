@@ -2,7 +2,20 @@
 
 const greetings = ["hello", "hi", "hey", "greetings", "salutations"];
 
-const randomMessages = ["Learning Skills!", "pro Durham propaganda", "Wow, you're on a merit streak!", "Check your GPA", "<em><br></br></em>","Sign up to Waffle+ today!", "Zscaler Certified!", "Works on Master Combination Locks", "System requirements: Yes","Also try ChatGPT"]
+const randomMessages = ["Learning Skills!", 
+    "Durham is the best house",
+    "Wow, you're on a merit streak!",
+    "Check your GPA",
+    "<em><br></br></em>",
+    "Not Certified by Zscaler!",
+    "Also try ChatGPT",
+    "Also try ChatGPT",
+    "Also try ChatGPT",
+    "Also try ChatGPT",
+    "Also try ChatGPT",
+    "Also try ChatGPT",
+    "Also try ChatGPT",
+    "salt air"]
 
 const bbcTrigger = ["bbc", "passcode", "password", "code"]
 
