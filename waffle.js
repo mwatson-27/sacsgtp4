@@ -22,7 +22,7 @@ const classrooms = [
     "b201", "b202", "b203", "b204", "b205", "b206", "b207", "b208", "b209",
     "b301", "b302", "b303", "b304", "b305", 
     "b401", "b403", "b404", "b405", "b406", "b407", "b408", "b409", "b410", "b411", "b412", "b413",
-    "gym", "fairfax", "gymnasium", "heath", "black", "auditorium", "bbca", "health", "ms_office", "it_helpdesk", "cathedral", "chapter", "bbc_reception", "sah_reception"]
+    "gym", "fairfax", "gymnasium", "heath", "black_box", "auditorium", "bbca", "health", "ms_office", "it_helpdesk", "cathedral", "chapter", "bbc_reception", "sah_reception"]
 
 const randomText = document.getElementById('random-message');
 
@@ -47,7 +47,7 @@ const levels =  new Map([
     ["b201", 2], ["b202", 2], ["b203", 2], ["b204", 2], ["b205", 2], ["b206", 2], ["b207", 2], ["b208", 2], ["b209", 2],
     ["b301", 3], ["b302", 3], ["b303", 3], ["b304", 3], ["b305", 3], 
     ["b401", 4], ["b403", 4], ["b404", 4], ["b405", 4], ["b406", 4], ["b407", 4], ["b408", 4], ["b409", 4], ["b410", 4], ["b411", 4], ["b412", 4], ["b413", 4],
-    ["gym", 7], ["fairfax", 8], ["gymnasium", 7], ["heath", 5], ["black", 0], ["auditorium", 0], ["bbca", 0], ["health",6 ], ["ms_office", 6], ["it_helpdesk", 4], ["cathedral", 0], ["chapter", 0], ["bbc_reception",1], ["sah_reception", 0]])
+    ["gym", 7], ["fairfax", 8], ["gymnasium", 7], ["heath", 5], ["black_box", 0], ["auditorium", 0], ["bbca", 0], ["health",6 ], ["ms_office", 6], ["it_helpdesk", 4], ["cathedral", 0], ["chapter", 0], ["bbc_reception",1], ["sah_reception", 0]])
 
 const building =  new Map([
     ["sg11","SAH"],["sg12","SAH"],
@@ -65,38 +65,21 @@ const building =  new Map([
     ["b201","BBC"], ["b202","BBC"], ["b203","BBC"], ["b204","BBC"], ["b205","BBC"], ["b206","BBC"], ["b207","BBC"], ["b208","BBC"], ["b209","BBC"],
     ["b301","BBC"], ["b302","BBC"], ["b303","BBC"], ["b304","BBC"], ["b305","BBC"], 
     ["b401","BBC"], ["b403","BBC"], ["b404","BBC"], ["b405","BBC"], ["b406","BBC"], ["b407","BBC"], ["b408","BBC"], ["b409","BBC"], ["b410","BBC"], ["b411","BBC"], ["b412","BBC"], ["b413","BBC"],
-    ["gym", "SAH"], ["fairfax", "SAH"], ["gymnasium", "SAH"], ["heath", "SAH"], ["black", "BBC"], ["auditorium", "BBC"], ["bba", "BBC"], ["health","SAH" ], ["ms_office", "SAH"], ["it", "SAH"], ["cathedral", "SAH"], ["chapter", "SAH"], ["bbc_reception", "BBC"], ["sah_reception", "SAH"]])
+    ["gym", "SAH"], ["fairfax", "SAH"], ["gymnasium", "SAH"], ["heath", "SAH"], ["black_box", "BBC"], ["auditorium", "BBC"], ["bba", "BBC"], ["health","SAH" ], ["ms_office", "SAH"], ["it", "SAH"], ["cathedral", "SAH"], ["chapter", "SAH"], ["bbc_reception", "BBC"], ["sah_reception", "SAH"]])
 
 
 
-const standard_origin =  new Map([
-    ["sg11","no"],["sg12","no"],
-    ["ms_library","yes"],
-    ["s421","yes"], ["s423","yes"], ["s424","yes"], ["s425","yes"], ["s426","yes"], ["s427","yes"], ["s436","yes"], ["s437","yes"],["s440","yes"], ["s438","yes"], ["s439","yes"],
-    ["s512","yes"], ["s538","yes"], 
-    ["s520","yes"], ["s521","yes"], ["s522","yes"], ["s523","yes"], ["s524","yes"],
-    ["s531","yes"], ["s532","yes"],["s533","yes"], 
-    ["s801","yes"], ["s810","yes"], ["s815","yes"], ["s817","yes"], 
-    ["s838","yes"], ["s839","yes"], ["s840","yes"], ["s841","yes"], 
-    ["blg02","yes"], ["blg03","yes"], ["blg04","yes"], ["blg05","yes"], ["blg06","yes"], ["blg07","yes"], ["blg08","yes"], 
-    ["bg18","yes"], ["bg19","yes"], ["bg20","yes"], 
-    ["b101","yes"], ["b102","yes"], ["b103","yes"], ["b120","yes"], 
-    ["b125","yes"], ["b127","yes"], ["b131","yes"], ["b130","yes"],
-    ["b201","yes"], ["b202","yes"], ["b203","yes"], ["b204","yes"], ["b205","yes"], ["b206","yes"], ["b207","yes"], ["b208","yes"], ["b209","yes"],
-    ["b301","yes"], ["b302","yes"], ["b303","yes"], ["b304","yes"], ["b305","yes"], 
-    ["b401","yes"], ["b403","yes"], ["b404","yes"], ["b405","yes"], ["b406","yes"], ["b407","yes"], ["b408","yes"], ["b409","yes"], ["b410","yes"], ["b411","yes"], ["b412","yes"], ["b413","yes"],
-    ["gym", "yes"], ["fairfax", "yes"], ["gymnasium", "yes"], ["heath", "yes"], ["black", "yes"], ["auditorium", "yes"], ["bbca", "yes"], ["health","yes" ], ["ms_office", "yes"], ["helpdesk", "yes"], ["cathedral", "no"], ["chapter", "no"]])
 
 const from_mid =  new Map([
-    ["sg11","walk towards the gym, turn right down the stairs, then turn left to find SG11"],
-    ["sg12","walk towards the gym, turn right down the stairs to find SG12"],
-    ["ms_library","follow sign to Middle School Library"],
-    ["s421","follow signs to Middle School Library, then walk into the library, and walk     to the left to find S421"], 
-    ["s423","follow signs to Middle School Library, then turn left before you enter, then turn right and travel to the end of the corridor to find S423"], 
-    ["s424","follow signs to Middle School Library, then turn left before you enter, then turn right to find S424"], 
-    ["s425","follow signs to Middle School Library, then turn left before you enter, then turn right to find S425"], 
-    ["s426","follow signs to Middle School Library, then turn left before you enter to find S426"], 
-    ["s427","follow signs to the Year 7 Open Area, then turn right as soon as you enter to find S427"], 
+    ["sg11","walk towards the gym, turn right down the stairs, then turn left"],
+    ["sg12","walk towards the gym, turn right down the stairs"],
+    ["ms_library","follow signs to Middle School Library"],
+    ["s421","follow signs to Middle School Library, then walk into the library, and walk to the left"], 
+    ["s423","follow signs to Middle School Library, then turn left before you enter, then turn right and travel to the end of the corridor"], 
+    ["s424","follow signs to Middle School Library, then turn left before you enter, then turn right"], 
+    ["s425","follow signs to Middle School Library, then turn left before you enter, then turn right"], 
+    ["s426","follow signs to Middle School Library, then turn left before you enter"], 
+    ["s427","follow signs to the Year 7 Open Area, then turn right as soon as you enter"], 
     ["s436","follow signs to the Year 7 Open Area, then travel forwards and to the right"],
     ["s437","follow signs to the Year 7 Open Area, then turn left after the first corridor"], 
     ["s438","follow signs to the Year 7 Open Area, then turn left after the first corridor"], 
@@ -112,8 +95,8 @@ const from_mid =  new Map([
     ["s531","follow signs to the Year 8 Open Area, turn left, then turn right at the corridor"], 
     ["s532","follow signs to the Year 8 Open Area, turn left, then turn right at the corridor"],
     ["s533","follow signs to the Year 8 Open Area, turn left, then turn right at the corridor"], 
-    ["s801","follow signs to the Fairfax room"], 
-    ["s810","follow signs to the Fairfax room"], 
+    ["s801","follow signs to the Fairfax foom, then enter the room through the doors in the far corner"], 
+    ["s810","follow signs to the Fairfax room, then the room is on the left"], 
     ["s815","follow signs to the Fairfax room, then turn left down the corridor"], 
     ["s817","follow signs to the Fairfax room, then turn left down the corrdior"], 
     ["s838","follow signs to the science labs, then go straight"], 
@@ -130,23 +113,23 @@ const from_mid =  new Map([
     ["bg18","travel through the bbc plaza to the far end"], 
     ["bg19","travel through the bbc plaza to the far end, and enter the hallway"], 
     ["bg20","travel through the bbc plaza to the far end, and enter the hallway"], 
-    ["b101","turn in to the corridor with the fire doors and walk down the hallway to reach B101"], 
-    ["b102","turn in to the corridor with the fire doors and B102 is on the left"], 
-    ["b103","turn in to the corridor with the fire doors and B103 is on the left"], 
-    ["b120","go opposite to the corridor with the fire doors to reach B120"], 
+    ["b101","turn in to the corridor with the fire doors to the Science centre, and walk down the hallway"], 
+    ["b102","turn in to the corridor with the fire doors to the Science centre, and turn to the left"], 
+    ["b103","turn in to the corridor with the fire doors to the Science centre, and turn to the left"], 
+    ["b120","enter the short corridor opposite the Science centre"], 
     ["b125","walk through to the main open area and B125 is the visible classroom"], 
-    ["b127","walk through to the main open area and enter the Visual Arts area to reach B127"], 
-    ["b131","walk through to the main open area and enter the Visual Arts area to reach B131"], 
-    ["b130","walk through to the main open area and enter the Visual Arts area to reach b130"],
-    ["b201","walk through to the main area with the lockers to reach B201"], 
-    ["b202","walk through to the main area with the lockers to reach B202"],
-    ["b203","walk through to the main area with the lockers to reach B203"], 
-    ["b204","walk through to the main area with the lockers to reach B204"], 
-    ["b205","walk through to the main area with the lockers to reach B205"], 
-    ["b206","walk through to the main area with the lockers to reach B206"], 
-    ["b207","walk through to the main area with the lockers to reach B207"], 
-    ["b208","walk through to the main area with the lockers to reach B208"], 
-    ["b209","walk through to the main area with the lockers to reach B209"],
+    ["b127","walk through to the main open area and enter the Visual Arts area"], 
+    ["b131","walk through to the main open area and enter the Visual Arts area"], 
+    ["b130","walk through to the main open area and enter the Visual Arts area"],
+    ["b201","walk through to the main area with the lockers"], 
+    ["b202","walk through to the main area with the lockers"],
+    ["b203","walk through to the main area with the lockers"], 
+    ["b204","walk through to the main area with the lockers"], 
+    ["b205","walk through to the main area with the lockers"], 
+    ["b206","walk through to the main area with the lockers"], 
+    ["b207","walk through to the main area with the lockers"], 
+    ["b208","walk through to the main area with the lockers"], 
+    ["b209","walk through to the main area with the lockers"],
     ["b301","B301 is located in the main area outside of the study centre"], 
     ["b302","B302 is located in the main area outside of the study centre"], 
     ["b303","B303 is located in the main area outside of the study centre"], 
@@ -168,7 +151,7 @@ const from_mid =  new Map([
     ["fairfax", "follow signs to the Fairfax room"], 
     ["gymnasium", "the level 7 gym is immediately visible after exiting the stairwell"],
     ["heath", "follow signs to the Heath Centre, then turn left, and turn right down the corridor"], 
-    ["black", "enter the BBC foyer area, then go down the corridor on the right"], 
+    ["black_box", "enter the BBC foyer area, then go down the corridor on the right"], 
     ["auditorium", "enter the BBC foyer area, then go down the corridor on the right"], 
     ["bbca", "enter the BBC foyer area, then go down the corridor on the right"], 
     ["health","go towards the junior school area and travel down the corridor on the right, then turn left" ], 
@@ -177,7 +160,7 @@ const from_mid =  new Map([
     ["chapter", "Chapter House is located in the square outside the SAH"], 
     ["bbc_reception", "BBC Reception is located opposite the main staircase on BBC Level 1"],
     ["sah_reception", 'SAH Reception is locatated in the foyer on Ground Floor'],
-    ["it_helpdesk", "follow signs to the Middle School Library, then walk straight and to the right, then turn left towards the North Fire Stairs, then travel to level 3 to reach the IT Helpdesk"]
+    ["it_helpdesk", "follow signs to the Middle School Library, then walk straight and to the right, then turn left towards the North Fire Stairs, then travel to level 3"]
     ])
 
 
@@ -262,7 +245,7 @@ const to_mid =  new Map([
     ["fairfax", "walk through the music open area back to the lift lobby"], 
     ["gymnasium", "exit the gym into the Level 7 lift lobby"],
     ["heath", "exit into the corridor, then walk back towards the lift lobby"], 
-    ["black", "exit into the corridor, then walk back towards the foyer area"], 
+    ["black_box", "exit into the corridor, then walk back towards the foyer area"], 
     ["auditorium", "exit into the corridor, then walk back towards the foyer area"], 
     ["bbca", "exit into the corridor, then walk back towards the foyer area"], 
     ["health","exit into the corridor, then turn to the right and walk back towards the lift lobby" ], 
@@ -291,7 +274,7 @@ const to_mid =  new Map([
     ["b201","level_two"], ["b202","level_two"], ["b203","level_two"], ["b204","level_two"], ["b205","level_two"], ["b206","level_two"], ["b207","level_two"], ["b208","level_two"], ["b209","level_two"],
     ["b301","not_library"], ["b302","not_library"], ["b303","not_library"], ["b304","not_library"], ["b305","not_library"], 
     ["b401","bbc_level_four"], ["b403","bbc_level_four"], ["b404","bbc_level_four"], ["b405","bbc_level_four"], ["b406","bbc_level_four"], ["b407","bbc_level_four"], ["b408","bbc_level_four"], ["b409","bbc_level_four"], ["b410","bbc_level_four"], ["b411","bbc_level_four"], ["b412","bbc_level_four"], ["b413","bbc_level_four"],
-    ["gym", "level_7"], ["fairfax", "music"], ["gymnasium", "level_7"], ["heath", "heath_side"], ["black", "bbc_foyer_area"], ["auditorium", "bbc_foyer_area"], ["bbca", "bbc_foyer_area"], ["health","junior_school" ], ["ms_office", "year_9"], ["cathedral", "square_outside"], ["chapter", "square_outside"], ["bbc_reception", "bbc_foyer_area"], ["sah_reception", "sah_foyer"]])
+    ["gym", "level_7"], ["fairfax", "music"], ["gymnasium", "level_7"], ["heath", "heath_side"], ["black_box", "bbc_foyer_area"], ["auditorium", "bbc_foyer_area"], ["bbca", "bbc_foyer_area"], ["health","junior_school" ], ["ms_office", "year_9"], ["cathedral", "square_outside"], ["chapter", "square_outside"], ["bbc_reception", "bbc_foyer_area"], ["sah_reception", "sah_foyer"]])
 
 
 
