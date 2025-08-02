@@ -39,9 +39,10 @@ function generateDirections(originRoom, directionRoom) {
 
             } else {
               if (originBuilding === "SAH") { //SAH WITHIN
-
-                botResponse = `${to_mid.get(originRoom)}. `
-
+                
+                
+                botResponse = `${to_mid.get(originRoom).charAt(0).toUpperCase()}${to_mid.get(originRoom).slice(1)}. `;
+                
                 if (originLevel === 0) {
                   botResponse = botResponse + `Use the lift and the fire stairs to reach Level ${directionLevel}. `
                 } else {
@@ -52,11 +53,12 @@ function generateDirections(originRoom, directionRoom) {
                   }
                 }
 
-                botResponse = botResponse + `${from_mid.get(originRoom)}. `
+                botResponse = botResponse + `${from_mid.get(directionRoom).charAt(0).toUpperCase()}${from_mid.get(directionRoom).slice(1)} to reach ${directionRoom}. `;
                 
               } else if (originBuilding === "BBC") { //BBC WITHIN
-                
-                  botResponse = `${to_mid.get(originRoom)}. `
+
+                  
+                  botResponse = `${to_mid.get(originRoom).charAt(0).toUpperCase()}${to_mid.get(originRoom).slice(1)}. `;
 
                   if (originLevel > 0) {
                     if (directionLevel > 0) {
@@ -98,8 +100,8 @@ function generateDirections(originRoom, directionRoom) {
                   
                   }
 
-                  botResponse = botResponse + `${from_mid.get(directionRoom)}. `  
-
+                   
+                  botResponse = botResponse + `${from_mid.get(directionRoom).charAt(0).toUpperCase()}${from_mid.get(directionRoom).slice(1)} to reach ${directionRoom}. `;
                   
               } else {
                 botResponse = "bro wtf";
@@ -114,7 +116,7 @@ function generateDirections(originRoom, directionRoom) {
             //other building 
             
             if (originBuilding === "BBC") { //FROM BBC
-              botResponse = `${to_mid.get(originRoom)}. `
+              botResponse = `${to_mid.get(originRoom).charAt(0).toUpperCase()}${to_mid.get(originRoom).slice(1)}. `;
 
               if (originLevel === -1) {
                 botResponse = botResponse + "Exit the design centre and turn right towards the staircases. "
@@ -135,15 +137,13 @@ function generateDirections(originRoom, directionRoom) {
                 botResponse = botResponse + `Use the lift and/or fire stairs to travel to Level ${directionLevel}. `
               }
 
-              botResponse = botResponse + `${from_mid.get(directionRoom)}. `
+              botResponse = botResponse + `${from_mid.get(directionRoom).charAt(0).toUpperCase()}${from_mid.get(directionRoom).slice(1)} to reach ${directionRoom}. `;
 
 
             } else if (originBuilding === "SAH") { //FROM SAH
-              if (standard_origin.get(originRoom)) {
-                botResponse = `${to_mid.get(originRoom)}. `
-              } else {
-                botResponse = "Exit into Sydney Square. ";
-              }
+              
+              botResponse = `${to_mid.get(originRoom).charAt(0).toUpperCase()}${to_mid.get(originRoom).slice(1)}. `;
+              
               
               if (originLevel >= 4) {
                 botResponse = botResponse + "Use the East Stairs to travel to ground floor and exit the SAH. ";
@@ -163,7 +163,7 @@ function generateDirections(originRoom, directionRoom) {
                 botResponse = botResponse + `Use one of the two staircases outside of the BBC to travel down to the Design Centre. `
               }
 
-              botResponse = botResponse + `${from_mid.get(directionRoom)}. `
+              botResponse = botResponse + `${from_mid.get(directionRoom).charAt(0).toUpperCase()}${from_mid.get(directionRoom).slice(1)} to reach ${directionRoom}. `;
   
 
             } else {
@@ -211,9 +211,7 @@ function processRequest() {
   userInput.value = '';
 
   let bbcWeight = 0;
-  let directionWeight = 0;
   let greetingWeight = 0;
-  let receptionWeight = 0;
 
   const new_text = text.toLowerCase();
 
@@ -233,7 +231,7 @@ function processRequest() {
   if (new_text.includes("\"?\"")) {
         botResponse = "I see how it is. "
   } else if (new_text == "?") {
-        botResponse = "currently it doesnt do much. To request directions, first ask how to get to the destination room, then the bot will prompt you for the starting room. Currently (and it won't be added), there is no way to ask this question in the other order. ";
+        botResponse = "To request directions, enter in the format \"room1 to room2\" (e.g. s523 to b409). For a list of valid rooms, use ?roomlist";
   } else if (classrooms.includes(split_text[0]) && classrooms.includes(split_text[2]) && split_text[1] == "to") {
         originRoom = split_text[0];
         directionRoom = split_text[2];
@@ -241,7 +239,7 @@ function processRequest() {
         originRoom = null;
         directionRoom = null;
   } else if (new_text == "?roomlist") {
-    botResponse = "Here is a list of all the rooms I know about: " + classrooms.join(", ") + ".";
+    botResponse = "Valid room inputs:\n" + classrooms.sort().join(", ") + ".";
   
   } else {
     for (const word of split_text) {
@@ -249,6 +247,10 @@ function processRequest() {
         greetingWeight += 1;
       } else if (word == "bbc" || word == "passcode" || word == "code") {
         bbcWeight += 1;
+      } else if (word == "essay" || word == "thesis" || word == "spo" || word == "paragraph" || word == "evaluate") {
+        essayWeight += 1;
+      } else if (word == "schoology" || word == "ep" || word == "edumate" || word == "timetable" || word == "subject" || word == "assessment" || word == "homework") {
+        bruzWeight += 1;
       }
   
     }
@@ -259,7 +261,11 @@ function processRequest() {
         
     } else if (greetingWeight >= 1) {
       botResponse = "Hello!";
-
+    
+    } else if (essayWeight >= 1) {
+      botResponse = "Also try ChatGPT";
+    } else if (bruzWeight >= 1) {
+      botResponse = "I do not have the budget to answer your query."
     } else {
       botResponse = "I'm not sure I understand.";
 
@@ -276,13 +282,23 @@ function processRequest() {
   botResponse = botResponse.replace("reach heath","reach the Heath Centre")
   botResponse = botResponse.replace("reach gym","reach the gym")
   botResponse = botResponse.replace("reach fairfax","reach the Fairfax Room")
-  botResponse = botResponse.replace("reach black","reach the Black Box Theatre")
+  botResponse = botResponse.replace("reach black_box","reach the Black Box Theatre")
   botResponse = botResponse.replace("reach auditorium","reach the BBC Auditorium")
   botResponse = botResponse.replace("reach bbca","reach the BBC Auditorium")
   botResponse = botResponse.replace("reach health","reach the Health Centre")
-  botResponse = botResponse.replace("reach office","reach the Middle School Office")
+  botResponse = botResponse.replace("reach ms_office","reach the Middle School Office")
+  
+  botResponse = botResponse.replace("reach sg","reach SG")
+  botResponse = botResponse.replace("reach bg","reach BG")
+  botResponse = botResponse.replace("reach blg","reach BLG")
   botResponse = botResponse.replace("reach b","reach B")
   botResponse = botResponse.replace("reach s","reach S")
+  botResponse = botResponse.replace("reach cathedral","reach the Cathedral")
+  botResponse = botResponse.replace("reach chapter","reach the Chapter House")
+  botResponse = botResponse.replace("reach it_helpdesk","reach the IT Helpdesk")
+
+  botResponse = botResponse.replace("to reach Bbc_reception","")
+  botResponse = botResponse.replace("to reach Sah_reception","")
 
   console.log("FINAL botResponse:", botResponse);
   appendMessage(botResponse, 'bot');
