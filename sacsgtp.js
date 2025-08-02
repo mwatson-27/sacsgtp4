@@ -212,6 +212,9 @@ function processRequest() {
 
   let bbcWeight = 0;
   let greetingWeight = 0;
+  let essayWeight = 0;
+  let bruzWeight = 0;
+  
 
   const new_text = text.toLowerCase();
 
@@ -261,17 +264,16 @@ function processRequest() {
         
     } else if (greetingWeight >= 1) {
       botResponse = "Hello!";
-    
     } else if (essayWeight >= 1) {
       botResponse = "Also try ChatGPT";
     } else if (bruzWeight >= 1) {
       botResponse = "I do not have the budget to answer your query."
     } else {
       botResponse = "I'm not sure I understand.";
-
     }
   }
   
+
 
 
   // Fallback for empty botResponse just before replacements and appendMessage
