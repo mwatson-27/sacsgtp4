@@ -263,8 +263,8 @@ const to_mid =  new Map([
     ["bbca", "exit into the corridor, then walk back towards the foyer area"], 
     ["health","exit into the corridor, then turn to the right and walk back towards the lift lobby" ], 
     ["ms_office", "exit into the Year 9 Open Area, then walk back towards the lift lobby"],  
-    ["cathedral", "exit into Sydney Square"], 
-    ["chapter", "exit into Sydney Square"], 
+    ["cathedral", ""], 
+    ["chapter", ""], 
     ["bbc_reception", ""],
      ["sah_reception", '']
     ])
