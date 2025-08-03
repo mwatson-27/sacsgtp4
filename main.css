@@ -51,6 +51,13 @@ body {
   overflow-y: auto;
 }
 
+@media (max-width: 1200px) {
+  .messages {
+    padding: 12px 8vw;
+  }
+}
+
+
 @media (max-width: 600px) {
   .messages {
     padding: 8px 4vw;
