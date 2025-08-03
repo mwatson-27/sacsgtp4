@@ -244,6 +244,9 @@ function processRequest() {
   } else if (new_text == "?roomlist") {
     botResponse = "Valid room inputs:\n" + classrooms.sort().join(", ") + ".";
   
+  } else if (new_text =="? roomlist") {
+    botResponse = "Valid room inputs:\n" + classrooms.sort().join(", ") + ".";
+  
   } else {
     for (const word of split_text) {
       if (greetings.includes(word)) {
@@ -301,6 +304,9 @@ function processRequest() {
 
   botResponse = botResponse.replace("to reach Bbc_reception","")
   botResponse = botResponse.replace("to reach Sah_reception","")
+  botResponse = botResponse.replace("to reach Bbc_reception","")
+  botResponse = botResponse.replace("to reach Sah_reception","")
+
 
   console.log("FINAL botResponse:", botResponse);
   appendMessage(botResponse, 'bot');
