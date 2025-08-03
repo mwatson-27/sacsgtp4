@@ -169,8 +169,8 @@ const from_mid =  new Map([
     ["bbca", "enter the BBC foyer area, then go down the corridor on the right"], 
     ["health","go towards the Junior School area and travel down the corridor on the right, then turn left" ], 
     ["ms_office", "follow signs to the Year 9 Open Area, then travel across the open area"],  
-    ["cathedral", "travel to Sydney Square opposite the SAH"], 
-    ["chapter", "travel to Sydney Square opposite the SAH"], 
+    ["cathedral", ""], 
+    ["chapter", ""], 
     ["bbc_reception", "BBC Reception is located opposite the main staircase on BBC Level 1"],
     ["sah_reception", 'SAH Reception is locatated in the foyer on Ground Floor'],
     ["it_helpdesk", "follow signs to the Middle School Library, then walk straight and to the right, then turn left towards the North Fire Stairs, then travel to level 3"]
