@@ -51,6 +51,12 @@ body {
   overflow-y: auto;
 }
 
+@media (max-width: 600px) {
+  .messages {
+    padding: 8px 4vw;
+  }
+}
+
 .message {
   margin-bottom: 12px;
   display: flex;
@@ -65,7 +71,7 @@ body {
 }
 
 .message .bubble {
-  max-width: 70%;
+  max-width: 70vw;
   padding: 10px 14px;
   border-radius: 16px;
   line-height: 1.4;
