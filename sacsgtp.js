@@ -34,7 +34,7 @@ function generateDirections(originRoom, directionRoom) {
                   else { //SAME LEVEL
                     
                     botResponse = `${to_mid.get(originRoom).charAt(0).toUpperCase()}${to_mid.get(originRoom).slice(1)}. `;
-                    botResponse = botRepsonse + `${from_mid.get(directionRoom).charAt(0).toUpperCase()}${from_mid.get(directionRoom).slice(1)}. `;
+                    botResponse = botResponse + `${from_mid.get(directionRoom).charAt(0).toUpperCase()}${from_mid.get(directionRoom).slice(1)}. `;
                   }
 
             } else {
