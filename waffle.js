@@ -78,7 +78,7 @@ const building =  new Map([
     ["b201","BBC"], ["b202","BBC"], ["b203","BBC"], ["b204","BBC"], ["b205","BBC"], ["b206","BBC"], ["b207","BBC"], ["b208","BBC"], ["b209","BBC"],
     ["b301","BBC"], ["b302","BBC"], ["b303","BBC"], ["b304","BBC"], ["b305","BBC"], 
     ["b401","BBC"], ["b403","BBC"], ["b404","BBC"], ["b405","BBC"], ["b406","BBC"], ["b407","BBC"], ["b408","BBC"], ["b409","BBC"], ["b410","BBC"], ["b411","BBC"], ["b412","BBC"], ["b413","BBC"],
-    ["gym", "SAH"], ["fairfax", "SAH"], ["gymnasium", "SAH"], ["heath", "SAH"], ["black_box", "BBC"], ["auditorium", "BBC"], ["bba", "BBC"], ["health","SAH" ], ["ms_office", "SAH"], ["it", "SAH"], ["cathedral", "SAH"], ["chapter", "SAH"], ["bbc_reception", "BBC"], ["sah_reception", "SAH"]])
+    ["gym", "SAH"], ["fairfax", "SAH"], ["gymnasium", "SAH"], ["heath", "SAH"], ["black_box", "BBC"], ["auditorium", "BBC"], ["bba", "BBC"], ["health","SAH" ], ["ms_office", "SAH"], ["it_helpdesk", "SAH"], ["cathedral", "SAH"], ["chapter", "SAH"], ["bbc_reception", "BBC"], ["sah_reception", "SAH"]])
 
 
 
@@ -263,6 +263,7 @@ const to_mid =  new Map([
     ["bbca", "exit into the corridor, then walk back towards the foyer area"], 
     ["health","exit into the corridor, then turn to the right and walk back towards the lift lobby" ], 
     ["ms_office", "exit into the Year 9 Open Area, then walk back towards the lift lobby"],  
+    ["it_helpdesk", "exit back into the stairs, walk up to level 4, then walk back through the library to the exit"],  
     ["cathedral", ""], 
     ["chapter", ""], 
     ["bbc_reception", ""],
@@ -327,4 +328,5 @@ const to_mid =  new Map([
 
         ["bbc_foyer_area###far_plaza", "BBC FOYER AREA TO BG19 AREA"],
         ["far_plaza###bbc_foyer_area", "BG19 AREA TO BBC FOYER AREA"]
+
     ])
