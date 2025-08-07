@@ -294,43 +294,6 @@ const to_mid =  new Map([
 
 
 
-    const sub_directions = new Map([
-        ["sports_centre###square_outside", "walk back through the foyer and exit into the square"],
-        ["sports_centre###sah_foyer", "walk up the stairs into the foyer"],
-        ["square_outside###sports_centre", "walk into the foyer, turn left, then walk down the stairs to the open area"],
-        ["square_outside###sah_foyer", "walk into the SAH"],
-        ["sah_foyer###sports_centre", "walk through the internal glass doors then turn right and walk down the stair"],
-        ["sah_foyer###square_outside", "exit the SAH"],
 
-        ["library_side###open_side", "walk through the lift lobby to the open area"],
-        ["open_side###library_side", "walk through the open area, back through the lift lobby to the other side"],
-
-        ["heath_side###far_corridor", "HEATH SIDE TO FAR CORRIDOR"],
-        ["heath_side###near_corridor", "HEATH SIDE TO NEAR CORRIDOR"],
-        ["far_corridor###near_corridor", "FAR CORRIDOR TO NEAR CORRIDOR"],
-        ["far_corridor###heath_side", "FAR CORRIDOR TO HEATH SIDE"],
-        ["near_corridor###heath_side", "NEAR CORRIDOR TO HEATH SIDE"],
-        ["near_corridor###far_corridor", "NEAR CORRIDOR TO FAR CORRIDOR"],
-
-        ["music###science", "MUSIC TO SCIENCE"],
-        ["science###music", "SCIENCE TO MUSIC"],
-
-        ["bbc_science###bbc_science_but_no", "BBC SCIENCE TO B120"],
-        ["bbc_science###bbc_va", "BBC_SCIENCE TO BBC VISUAL ARTS"],
-        ["bbc_science_but_no###bbc_va", "B120 TO BBC VISUAL ARTS"],
-        ["bbc_science_but_no###bbc_science", "B120 TO BBC SCIENCE"],
-        ["bbc_va###bbc_science", "BBC VISUAL ARTS TO BBC SCIENCE"],
-        ["bbc_va###bbc_science_but_no", "BBC VISUAL ARTS TO B120"],
-
-        ["study_centre###not_library", "BBC STUDY CENTRE TO REGULAR LEVEL 3"],
-        ["not_library###study_centre", "REGULAR LEVEL 3 TO BBC STUDY CENTRE"],
-
-        ["junior_school###year_9", "JUNIOR SCHOOL SIDE TO YEAR 9 OPEN AREA SIDE"],
-        ["year_9###junior_school", "YEAR 9 OPEN AREA SIDE TO JUNIOR SCHOOL SIDE"],
-
-        ["bbc_foyer_area###far_plaza", "BBC FOYER AREA TO BG19 AREA"],
-        ["far_plaza###bbc_foyer_area", "BG19 AREA TO BBC FOYER AREA"]
-
-    ])
 
 
