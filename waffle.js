@@ -15,7 +15,9 @@ const randomMessages = ["Learning Skills!",
     "Also try ChatGPT",
     "Also try ChatGPT",
     "Also try ChatGPT",
-    "salt air"]
+    "salt air",
+    "Inkdin: Rethink the Ink",
+    "Stale Witness"]
 
 const bbcTrigger = ["bbc", "passcode", "password", "code"]
 
@@ -330,4 +332,5 @@ const to_mid =  new Map([
         ["far_plaza###bbc_foyer_area", "BG19 AREA TO BBC FOYER AREA"]
 
     ])
+
 
