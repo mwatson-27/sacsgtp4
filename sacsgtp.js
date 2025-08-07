@@ -32,9 +32,9 @@ function generateDirections(originRoom, directionRoom) {
                     botResponse = "JUST LOOK AROUND IT IS NOT THAT DEEP";
                   }
                   else { //SAME LEVEL
-                    let subAreaQuery = originSubArea + "###" + directionSubArea;
-                    console.log(subAreaQuery)
-                    botResponse = sub_directions.get(subAreaQuery);
+                    
+                    botResponse = `${to_mid.get(originRoom).charAt(0).toUpperCase()}${to_mid.get(originRoom).slice(1)}. `;
+                    botResponse = botrepsonse + `${from_mid.get(originRoom).charAt(0).toUpperCase()}${from_mid.get(originRoom).slice(1)}. `;
                   }
 
             } else {
