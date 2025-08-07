@@ -153,7 +153,7 @@ function generateDirections(originRoom, directionRoom) {
               botResponse = botResponse + `Travel to the BBC by walking through Sydney square and crossing Kent Street. `
               
               if (directionLevel > 1) {
-                botResponse = botResponse + `Enter the BBC through the main entrance and walk up the main staircase to Level 1.Then use the fire stairs to reach Level ${directionLevel}. `
+                botResponse = botResponse + `Enter the BBC through the main entrance and walk up the main staircase to Level 1. Then use the fire stairs to reach Level ${directionLevel}. `
               } else if (directionLevel === 0) {
                 if (directionRoom.startsWith("bg")) {
                   botResponse = botResponse + `Walk through past the main entrance to the classrooms at the far end of the BBC Plaza. `
