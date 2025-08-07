@@ -29,7 +29,7 @@ function generateDirections(originRoom, directionRoom) {
             if (originLevel === directionLevel) {
               
                   if (originSubArea === directionSubArea) { //SAME AREA
-                    botResponse = "JUST LOOK AROUND IT IS NOT THAT DEEP";
+                    botResponse = `${directionRoom} is very close to ${originRoom}, please take a look around.`;
                   }
                   else { //SAME LEVEL
                     
@@ -243,12 +243,12 @@ function processRequest() {
         botResponse = generateDirections(originRoom, directionRoom);
         originRoom = null;
         directionRoom = null;
-  } else if (new_text == "?roomlist") {
+  } else if (new_text == "?roomlist" || new_text == "? roomlist" || new_text == "roomlist") {
     botResponse = "Valid room inputs:\n" + classrooms.sort().join(", ") + ".";
-  
-  } else if (new_text =="? roomlist") {
-    botResponse = "Valid room inputs:\n" + classrooms.sort().join(", ") + ".";
-  
+  } else if (new_text == "salt air") {
+    botResponse = "and the rust on your door";
+  } else if (new_text == "never needed anything more") {
+    botResponse = "just stop please";
   } else {
     for (const word of split_text) {
       if (greetings.includes(word)) {
