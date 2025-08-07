@@ -293,15 +293,15 @@ const to_mid =  new Map([
 
 
     const sub_directions = new Map([
-        ["sports_centre###square_outside", "SPORTS CENTRE TO SQUARE OUTSIDE"],
-        ["sports_centre###sah_foyer", "SPORTS CENTRE TO SAH FOYER"],
-        ["square_outside###sports_centre", "SQUARE OUTSIDE TO SPORTS CENTRE"],
-        ["square_outside###sah_foyer", "SQUARE OUTSIDE TO SAH FOYER"],
-        ["sah_foyer###sports_centre", "SAH FOYER TO SPORTS CENTRE"],
-        ["sah_foyer###square_outside", "SAH FOYER TO SQUARE OUTSIDE"],
+        ["sports_centre###square_outside", "walk back through the foyer and exit into the square"],
+        ["sports_centre###sah_foyer", "walk up the stairs into the foyer"],
+        ["square_outside###sports_centre", "walk into the foyer, turn left, then walk down the stairs to the open area"],
+        ["square_outside###sah_foyer", "walk into the SAH"],
+        ["sah_foyer###sports_centre", "walk through the internal glass doors then turn right and walk down the stair"],
+        ["sah_foyer###square_outside", "exit the SAH"],
 
-        ["library_side###open_side", "LIBRARY SIDE TO OPEN AREA SIDE"],
-        ["open_side###library_side", "OPEN AREA SIDE TO LIBRARY SIDE"],
+        ["library_side###open_side", "walk through the lift lobby to the open area"],
+        ["open_side###library_side", "walk through the open area, back through the lift lobby to the other side"],
 
         ["heath_side###far_corridor", "HEATH SIDE TO FAR CORRIDOR"],
         ["heath_side###near_corridor", "HEATH SIDE TO NEAR CORRIDOR"],
@@ -330,3 +330,4 @@ const to_mid =  new Map([
         ["far_plaza###bbc_foyer_area", "BG19 AREA TO BBC FOYER AREA"]
 
     ])
+
