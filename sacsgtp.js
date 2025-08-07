@@ -219,6 +219,7 @@ function processRequest() {
   const new_text = text.toLowerCase();
 
   new_text.replace("auditorium","bbca")
+  new_text.replace("gymnasium","gym")
 
   let botResponse = ""; 
 
