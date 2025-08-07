@@ -236,7 +236,7 @@ function processRequest() {
   if (new_text.includes("\"?\"")) {
         botResponse = "I see how it is. "
   } else if (new_text == "?") {
-        botResponse = "To request directions, enter in the format \"room1 to room2\" (e.g. s523 to b409). For a list of valid rooms, use ?roomlist";
+        botResponse = "To request directions, enter in the format \"room1 to room2\" (e.g. s523 to b409). For a list of valid rooms, use ?roomlist. You can also ask for the BBC passcode";
   } else if (classrooms.includes(split_text[0]) && classrooms.includes(split_text[2]) && split_text[1] == "to") {
         originRoom = split_text[0];
         directionRoom = split_text[2];
@@ -264,7 +264,7 @@ function processRequest() {
     }
 
     if (bbcWeight >= 2) {
-      console.log("wtf");
+      console.log("wtb");
       botResponse = "The passcode to enter the BBC is 1401#";
         
     } else if (greetingWeight >= 1) {
