@@ -17,7 +17,8 @@ const randomMessages = ["Learning Skills!",
     "Also try ChatGPT",
     "salt air",
     "Inkdin: Rethink the Ink",
-    "Stale Witness"]
+    "Stale Witness",
+    "Generally Terrible Program"]
 
 const bbcTrigger = ["bbc", "passcode", "password", "code"]
 
@@ -291,6 +292,7 @@ const to_mid =  new Map([
     ["b301","not_library"], ["b302","not_library"], ["b303","not_library"], ["b304","not_library"], ["b305","not_library"], 
     ["b401","bbc_level_four"], ["b403","bbc_level_four"], ["b404","bbc_level_four"], ["b405","bbc_level_four"], ["b406","bbc_level_four"], ["b407","bbc_level_four"], ["b408","bbc_level_four"], ["b409","bbc_level_four"], ["b410","bbc_level_four"], ["b411","bbc_level_four"], ["b412","bbc_level_four"], ["b413","bbc_level_four"],
     ["gym", "level_7"], ["fairfax", "music"], ["gymnasium", "level_7"], ["heath", "heath_side"], ["black_box", "bbc_foyer_area"], ["auditorium", "bbc_foyer_area"], ["bbca", "bbc_foyer_area"], ["health","junior_school" ], ["ms_office", "year_9"], ["cathedral", "square_outside"], ["chapter", "square_outside"], ["bbc_reception", "bbc_foyer_area"], ["sah_reception", "sah_foyer"]])
+
 
 
 
